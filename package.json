@@ -1,6 +1,6 @@
 {
   "name": "@tskau/tobalt",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "the simple cobalt API client written in typescript",
   "main": "dist/tobalt.js",
   "scripts": {
@@ -18,5 +18,8 @@
     "@types/node": "^20.12.7",
     "ts-standard": "^12.0.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "axios": "^1.6.8"
   }
 }
