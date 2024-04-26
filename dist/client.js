@@ -77,8 +77,8 @@ class Client {
                         : new results_1.SingleContent(new content_1.Content(result.url));
                 case 'picker': {
                     const pickerType = result.pickerType === 'various'
-                        ? Tobalt.PickerType.VARIOUS
-                        : Tobalt.PickerType.IMAGES;
+                        ? results_1.PickerType.VARIOUS
+                        : results_1.PickerType.IMAGES;
                     const contents = result.picker.map((item) => new content_1.Content(item.url));
                     return result.audio
                         ? new results_1.PickerWithAudio(pickerType, contents, new content_1.Content(result.audio))

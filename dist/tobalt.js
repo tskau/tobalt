@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PickerWithAudio = exports.Picker = exports.DoubleContent = exports.SingleContent = exports.TobaltError = exports.Client = void 0;
 const client_1 = require("./client");
+Object.defineProperty(exports, "Client", { enumerable: true, get: function () { return client_1.Client; } });
 const error_1 = require("./error");
+Object.defineProperty(exports, "TobaltError", { enumerable: true, get: function () { return error_1.TobaltError; } });
 const results_1 = require("./results");
-exports.default = {
-    Client: client_1.Client,
-    TobaltError: error_1.TobaltError,
-    SingleContent: results_1.SingleContent,
-    DoubleContent: results_1.DoubleContent,
-    Picker: results_1.Picker,
-    PickerWithAudio: results_1.PickerWithAudio
-};
+Object.defineProperty(exports, "SingleContent", { enumerable: true, get: function () { return results_1.SingleContent; } });
+Object.defineProperty(exports, "DoubleContent", { enumerable: true, get: function () { return results_1.DoubleContent; } });
+Object.defineProperty(exports, "Picker", { enumerable: true, get: function () { return results_1.Picker; } });
+Object.defineProperty(exports, "PickerWithAudio", { enumerable: true, get: function () { return results_1.PickerWithAudio; } });

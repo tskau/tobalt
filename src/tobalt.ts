@@ -7,7 +7,7 @@ import {
   PickerWithAudio
 } from './results'
 
-export default {
+export {
   Client,
   TobaltError,
   SingleContent,
