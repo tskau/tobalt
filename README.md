@@ -50,8 +50,8 @@ picker.type // 'various' or 'images'
 
 // the same thing like with single content
 await picker.items[0].stream()
-await singleContent.content.save('/tmp/silly-billy.mp4')
-singleContent.content.url // 'https://video.twimg.com/ext_tw_video/...'
+await picker.items[0].save('/tmp/silly-billy.mp4')
+picker.items[0].url // 'https://video.twimg.com/ext_tw_video/...'
 
 // the same thing as with picker but it has audio field
 const pickerWithAudio = await cobalt.fetchContent({
