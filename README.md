@@ -26,7 +26,7 @@ const cobalt = new Client({ baseUrl: COBALT_BASE_URL })
 // the method to fetch the server information
 const serverInfo = await cobalt.serverInfo()
 
-// the basically basic information
+// serverInfo() simply returns the response from cobalt
 serverInfo.version // '7.13'
 serverInfo.name // 'nl4'
 serverInfo.url // 'https://nl4-co.wuk.sh/'
