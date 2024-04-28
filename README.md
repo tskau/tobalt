@@ -1,6 +1,14 @@
 # tobalt
 the simple cobalt API client written in typescript
 
+### installation
+
+```bash
+npm install --save @tskau/tobalt
+# yarn install @tskau/tobalt
+# pnpm add @tskau/tobalt
+```
+
 ### usage example
 
 ```js
