@@ -37,7 +37,7 @@ class Content {
                     .on('error', onError)
                     .on('finish', onFinish);
             }
-            return new Promise(writeToFile.bind(this));
+            return yield new Promise(writeToFile.bind(this));
         });
     }
     stream() {

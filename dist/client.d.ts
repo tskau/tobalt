@@ -1,4 +1,4 @@
-import { DoubleContent, Picker, PickerWithAudio, SingleContent } from './results';
+import { Picker, PickerWithAudio, SingleContent } from './results';
 export interface CobaltOptions {
     baseUrl?: string;
 }
@@ -46,5 +46,5 @@ export declare class Client {
     private readonly axios;
     constructor(options?: CobaltOptions);
     serverInfo(this: Client): Promise<CobaltServerInfo>;
-    fetchContent(this: Client, options: FetchOptions): Promise<SingleContent | DoubleContent | Picker | PickerWithAudio>;
+    fetchContent(this: Client, options: FetchOptions): Promise<SingleContent | Picker | PickerWithAudio>;
 }

@@ -7,11 +7,6 @@ export declare class SingleContent {
     readonly content: Content;
     constructor(content: Content);
 }
-export declare class DoubleContent {
-    readonly video: Content;
-    readonly audio: Content;
-    constructor(video: Content, audio: Content);
-}
 export declare class Picker {
     readonly type: PickerType;
     readonly items: Content[];

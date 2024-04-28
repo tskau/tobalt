@@ -50,7 +50,7 @@ class Client {
         });
         this.axios.interceptors.response.use((value) => value, function (error) {
             var _a;
-            if ((_a = error === null || error === void 0 ? void 0 : error.response) === null || _a === void 0 ? void 0 : _a.data) {
+            if (((_a = error === null || error === void 0 ? void 0 : error.response) === null || _a === void 0 ? void 0 : _a.data) !== undefined) {
                 const { status, text } = error.response.data;
                 if (status === 'error' || status === 'rate-limit') {
                     throw new error_1.TobaltError(text);
@@ -67,23 +67,21 @@ class Client {
     }
     fetchContent(options) {
         return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
             const response = yield this.axios.post('/json', Object.assign(Object.assign({}, options), { dubLang: options.dubLang !== undefined }), {
                 headers: { 'Accept-Language': options.dubLang }
             });
             const result = response.data;
-            console.log(result);
             switch (result.status) {
                 case 'stream':
                 case 'redirect':
-                    return result.audio
-                        ? new results_1.DoubleContent(new content_1.Content(result.url), new content_1.Content(result.audio))
-                        : new results_1.SingleContent(new content_1.Content(result.url));
+                    return new results_1.SingleContent(new content_1.Content(result.url));
                 case 'picker': {
                     const pickerType = result.pickerType === 'various'
                         ? results_1.PickerType.VARIOUS
                         : results_1.PickerType.IMAGES;
-                    const contents = result.picker.map((item) => new content_1.Content(item.url));
-                    return result.audio
+                    const contents = (_b = (_a = result.picker) === null || _a === void 0 ? void 0 : _a.map((item) => new content_1.Content(item.url))) !== null && _b !== void 0 ? _b : [];
+                    return result.audio !== undefined
                         ? new results_1.PickerWithAudio(pickerType, contents, new content_1.Content(result.audio))
                         : new results_1.Picker(pickerType, contents);
                 }

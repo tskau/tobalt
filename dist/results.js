@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PickerWithAudio = exports.Picker = exports.DoubleContent = exports.SingleContent = exports.PickerType = void 0;
+exports.PickerWithAudio = exports.Picker = exports.SingleContent = exports.PickerType = void 0;
 var PickerType;
 (function (PickerType) {
     PickerType["VARIOUS"] = "various";
@@ -12,13 +12,6 @@ class SingleContent {
     }
 }
 exports.SingleContent = SingleContent;
-class DoubleContent {
-    constructor(video, audio) {
-        this.video = video;
-        this.audio = audio;
-    }
-}
-exports.DoubleContent = DoubleContent;
 class Picker {
     constructor(type, items) {
         this.type = type;
