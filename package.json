@@ -9,6 +9,8 @@
     "lint": "ts-standard --fix"
   },
   "keywords": [],
+  "repository": "https://github.com/tskau/tobalt.git",
+  "homepage": "https://github.com/tskau/tobalt",
   "author": {
     "name": "mikhail \"synzr\"",
     "url": "https://github.com/synzr"
