@@ -1,6 +1,6 @@
 {
   "name": "@tskau/tobalt",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "the simple cobalt API client written in typescript",
   "main": "dist/tobalt.js",
   "scripts": {

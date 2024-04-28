@@ -2,7 +2,6 @@ import axios, { AxiosError, AxiosInstance } from 'axios'
 import { TobaltError } from './error'
 import * as globals from './globals'
 import {
-  DoubleContent,
   Picker,
   PickerType,
   PickerWithAudio,
@@ -74,7 +73,7 @@ export class Client {
     this.axios.interceptors.response.use(
       (value: any): any => value,
       function (error: AxiosError<CobaltErrorResponse>): void {
-        if (error?.response?.data) {
+        if (error?.response?.data !== undefined) {
           const { status, text } = error.response.data
 
           if (status === 'error' || status === 'rate-limit') {
@@ -95,34 +94,33 @@ export class Client {
   async fetchContent (
     this: Client,
     options: FetchOptions
-  ): Promise<SingleContent | DoubleContent | Picker | PickerWithAudio> {
+  ): Promise<SingleContent | Picker | PickerWithAudio> {
     const response = await this.axios.post(
       '/json',
-      { ...options, dubLang: options.dubLang !== undefined }
+      { ...options, dubLang: options.dubLang !== undefined },
+      {
+        headers: { 'Accept-Language': options.dubLang }
+      }
     )
 
-    const result = response.data satisfies CobaltFetchResult
+    const result: CobaltFetchResult =
+      response.data satisfies CobaltFetchResult
 
     switch (result.status) {
       case 'stream':
       case 'redirect':
-        return result.audio
-          ? new DoubleContent(
-              new Content(result.url),
-              new Content(result.audio)
-            )
-          : new SingleContent(
-              new Content(result.url)
-            )
+        return new SingleContent(
+          new Content(result.url)
+        )
       case 'picker': {
         const pickerType = result.pickerType === 'various'
           ? PickerType.VARIOUS
           : PickerType.IMAGES
-        const contents = result.picker.map(
+        const contents = result.picker?.map(
           (item: PickerItem) => new Content(item.url)
-        )
+        ) ?? []
 
-        return result.audio
+        return result.audio !== undefined
           ? new PickerWithAudio(pickerType, contents, new Content(result.audio))
           : new Picker(pickerType, contents)
       }

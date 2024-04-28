@@ -9,13 +9,6 @@ export class SingleContent {
   constructor (public readonly content: Content) {}
 }
 
-export class DoubleContent {
-  constructor (
-    public readonly video: Content,
-    public readonly audio: Content
-  ) {}
-}
-
 export class Picker {
   constructor (
     public readonly type: PickerType,

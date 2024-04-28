@@ -5,7 +5,7 @@ import fs from 'node:fs'
 export class Content {
   constructor (public readonly url: string) {}
 
-  async save(this: Content, path: string): Promise<void> {
+  async save (this: Content, path: string): Promise<void> {
     const readableStream = await this.stream()
     const writableStream = fs.createWriteStream(path)
 
@@ -31,7 +31,7 @@ export class Content {
         .on('finish', onFinish)
     }
 
-    return new Promise(
+    return await new Promise(
       writeToFile.bind(this)
     )
   }

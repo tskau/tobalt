@@ -67,8 +67,11 @@ class Client {
     }
     fetchContent(options) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield this.axios.post('/json', Object.assign(Object.assign({}, options), { dubLang: options.dubLang !== undefined }));
+            const response = yield this.axios.post('/json', Object.assign(Object.assign({}, options), { dubLang: options.dubLang !== undefined }), {
+                headers: { 'Accept-Language': options.dubLang }
+            });
             const result = response.data;
+            console.log(result);
             switch (result.status) {
                 case 'stream':
                 case 'redirect':
