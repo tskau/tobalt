@@ -62,3 +62,9 @@ await picker.audio.stream()
 await picker.audio.save('/tmp/tiktok-audio.mp3')
 picker.audio.url // "https://sf16-ies-music-va.tiktokcdn.com/obj/...'
 ```
+
+### other implementations/projects
+
+- [lostdusty/gobalt](https://github.com/lostdusty/gobalt) (client in golang)
+- [lostdusty/cobalt](https://github.com/lostdusty/cobalt) (cli client in golang)
+- [khyerdev/tcobalt](https://github.com/khyerdev/tcobalt) (cli client in rust)
